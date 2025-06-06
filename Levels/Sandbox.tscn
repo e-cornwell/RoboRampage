@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d10o0jm38sash"]
+[gd_scene load_steps=10 format=3 uid="uid://d10o0jm38sash"]
 
 [ext_resource type="PackedScene" uid="uid://voxsrlaryaid" path="res://Player/player.tscn" id="1_cm70w"]
 [ext_resource type="Material" uid="uid://dsag1urdibrer" path="res://Levels/Materials/FloorMaterial.tres" id="1_q2e3v"]
@@ -19,6 +19,12 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2e3v"]
 albedo_color = Color(0.816386, 0.284181, 0.0526728, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwgsj"]
+albedo_color = Color(0.122258, 0.664884, 0.308729, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kld8x"]
+albedo_color = Color(0.297424, 0.568581, 0.895359, 1)
 
 [node name="Sandbox" type="Node3D"]
 
@@ -121,6 +127,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3277, 5.10893, 12.2579)
 size = Vector3(1, 0.2, 8)
 material = ExtResource("3_nwgsj")
 
+[node name="MountainPlank" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(0.931746, 0.0190376, -0.362613, 0.0315833, 0.990591, 0.133162, 0.361736, -0.135525, 0.922378, 12.7605, 11.9093, 16.5768)
+use_collision = true
+size = Vector3(1, 0.2, 12)
+material = ExtResource("3_nwgsj")
+
 [node name="Lava" type="CSGBox3D" parent="LevelObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6344, 0.23558, 11.9033)
 use_collision = true
@@ -133,6 +145,7 @@ use_collision = true
 radius = 6.947
 height = 8.0
 cone = true
+material = SubResource("StandardMaterial3D_nwgsj")
 
 [node name="Skyscraper" type="CSGBox3D" parent="LevelObjects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56516, 2.5, 27.3399)
@@ -153,3 +166,48 @@ size = Vector3(4, 15, 4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5477, 2.5, 23.3906)
 use_collision = true
 size = Vector3(4, 20, 4)
+
+[node name="Slope" type="CSGPolygon3D" parent="LevelObjects"]
+transform = Transform3D(-2.99961, 0, -0.048588, 0, 3, 0, 0.048588, 0, -2.99961, -13.247, 0, -26.6717)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 1, 1, 1, 0)
+depth = 5.0
+material = ExtResource("3_nwgsj")
+
+[node name="Slope2" type="CSGPolygon3D" parent="LevelObjects"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.43977, -3.9734, -11.518)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 6, 5, 3, 0)
+depth = 5.0
+material = ExtResource("3_nwgsj")
+
+[node name="RoundPiller" type="CSGSphere3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.624, 5, -23.176)
+radius = 6.214
+material = ExtResource("1_q2e3v")
+
+[node name="RoundPiller2" type="CSGSphere3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.624, 5, -8.15083)
+radius = 6.214
+material = ExtResource("1_q2e3v")
+
+[node name="RoundPiller3" type="CSGSphere3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.624, 5, 6.58195)
+radius = 6.214
+material = ExtResource("1_q2e3v")
+
+[node name="UpstairsFloor" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5711, 10.0201, -8.4931)
+use_collision = true
+size = Vector3(18, 2, 42)
+material = ExtResource("1_q2e3v")
+
+[node name="ShallowPlatform" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.38656, 0.25, 8.19015)
+size = Vector3(10, 0.5, 10)
+material = ExtResource("1_q2e3v")
+
+[node name="ShallowPlatform2" type="CSGBox3D" parent="LevelObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.40567, 0.25, 10.0102)
+size = Vector3(10, 0.5, 16.5141)
+material = SubResource("StandardMaterial3D_kld8x")
